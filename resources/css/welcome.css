@@ -1,0 +1,332 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.welcome-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #fffcfcd5, #f3f4f6e3, #d7dddfdc);
+    background-size: 200% 200%;
+    animation: gradientShift 10s ease infinite;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #060708;
+    position: relative; /* Added to support absolute positioning of logo */
+}
+
+
+/* Base container */
+.container-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    gap: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.auth-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+/* Media queries for auth-cards */
+@media (max-width: 359px) {
+    .auth-cards {
+        max-width: 90%;
+        padding: 0 5px;
+    }
+}
+
+@media (min-width: 360px) and (max-width: 479px) {
+    .auth-cards {
+        max-width: 300px;
+        padding: 0 10px;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 639px) {
+    .auth-cards {
+        max-width: 320px;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+    .auth-cards {
+        max-width: 340px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .auth-cards {
+        max-width: 360px;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .auth-cards {
+        max-width: 380px;
+    }
+}
+
+@media (min-width: 1440px) and (max-width: 1919px) {
+    .auth-cards {
+        max-width: 400px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .auth-cards {
+        max-width: 420px;
+    }
+}
+
+/* H1 styling */
+.container-1 h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(90deg, #138282, #0a2d2d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Responsive for tablets/desktops */
+@media (min-width: 768px) {
+    .container-1 {
+        margin-top:40px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        text-align: left;
+        gap: 60px;
+        padding: 60px 40px; /* Increased top padding to account for logo */
+    }
+
+    .container-1 h1 {
+        flex: 0 1 auto;
+        text-align: left;
+        margin-bottom: 0;
+        padding-left: 40px;
+    }
+
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+    .container-1 {
+        padding-top: 100px; /* Increased to make space for centered logo */
+    }
+
+    .heading-wrapper {
+        width: 100%;
+        min-width: unset;
+        max-width: unset;
+    }
+
+    .typing {
+        white-space: normal;
+        font-size: clamp(1.2rem, 5vw, 1.8rem);
+        animation: typing 2.6s steps(21, end) forwards; /* Only typing animation */
+        border-right: none !important; /* Force remove cursor */
+    }
+}
+
+/* Typing wrapper */
+.heading-wrapper {
+    flex-shrink: 0;
+    overflow: hidden;
+    display: inline-block;
+}
+
+/* Typing effect */
+.typing {
+    display: inline-block;
+    border-right: 2px solid #138282;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: typing 2.5s steps(22, end) forwards, blink 0.7s step-end infinite;
+}
+
+/* Typing keyframes */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Cursor blink */
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+
+@media (max-width: 359px) {
+    .typing {
+        font-size: clamp(1rem, 4vw, 1.5rem); /* Smaller font for very narrow screens */
+        white-space: normal;
+        overflow: visible; /* Ensure text isn’t cut off */
+    }
+
+    .heading-wrapper {
+        max-width: 90%; /* Allow text to fit within viewport */
+        margin: 0 auto; /* Center the text */
+    }
+}
+
+.tilt-card {
+    width: 100%;
+    max-width: 300px;
+    min-width: 240px;
+    background: linear-gradient(145deg, #142f39, #04373c);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.584);
+    overflow: hidden;
+    text-align: center;
+    padding: 15px;
+    margin: 20px 0;
+    position: relative;
+}
+
+.tilt-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle at 30% 30%,
+        rgba(142, 150, 150, 0.051),
+        transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.tilt-card:hover::before {
+    opacity: 1;
+}
+
+.badge-meta p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.chapter-index {
+    font-weight: bold;
+    color: #eeeaea;
+    text-transform: uppercase;
+}
+
+.tilt-card2 {
+    width: 100%;
+    max-width: 300px;
+    min-width: 240px;
+    background: transparent;
+    border: 2px solid #04373c;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    text-align: center;
+    padding: 15px;
+    margin: 20px 0;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tilt-card2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle at 30% 30%,
+        rgba(238, 243, 243, 0.525),
+        transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    border-radius: 15px;
+}
+
+.tilt-card2:hover::before {
+    opacity: 1;
+}
+
+.badge-meta2 p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.chapter-index2 {
+    font-weight: bold;
+    color: #062f33;
+    text-transform: uppercase;
+}
+
+/* Adjusted media queries for cards */
+@media (max-width: 359px) {
+    .tilt-card, .tilt-card2 {
+        max-width: 260px;
+        min-width: 220px;
+    }
+}
+
+@media (min-width: 360px) and (max-width: 479px) {
+    .tilt-card, .tilt-card2 {
+        max-width: 280px;
+        min-width: 240px;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 639px) {
+    .tilt-card, .tilt-card2 {
+        max-width: 300px;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+    .tilt-card, .tilt-card2 {
+        max-width: 320px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .tilt-card, .tilt-card2 {
+        max-width: 340px;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .tilt-card, .tilt-card2 {
+        max-width: 360px;
+    }
+}
+
+@media (min-width: 1440px) and (max-width: 1919px) {
+    .tilt-card, .tilt-card2 {
+        max-width: 380px;
+    }
+}
+
+@media (min-width: 1920px) {
+    .tilt-card, .tilt-card2 {
+        max-width: 400px;
+    }
+}

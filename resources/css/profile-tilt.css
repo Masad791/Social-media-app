@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.profile-card {
+  width: 100%;
+  max-width: 440px; /* Default for mid screens */
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 1.2rem;
+}
+
+/* Subtle glow */
+.profile-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.profile-card:hover::before {
+  opacity: 1;
+}
+
+/* Prevent tilt on inner content */
+.profile-card .bg-white {
+  box-shadow: none;
+}
+
+.profile-card .rounded-full,
+.profile-card img,
+.profile-card button {
+  transform: none !important;
+}
+
+/* ================= Responsive Layout ================= */
+
+/* Extra Small Phones (≤360px, e.g., iPhone SE) */
+@media (max-width: 360px) {
+  .profile-card {
+    max-width: 95%;
+    padding: 1rem;
+  }
+  .profile-card h1 {
+    font-size: 1.15rem;
+  }
+  .profile-card p,
+  .profile-card span {
+    font-size: 0.85rem;
+  }
+  .profile-card button {
+    font-size: 0.8rem;
+    padding: 0.6rem 1.1rem;
+  }
+}
+
+/* Small Phones (361–480px, e.g., iPhone XR, Samsung A12) */
+@media (min-width: 361px) and (max-width: 480px) {
+  .profile-card {
+    max-width: 90%;
+    padding: 1.2rem;
+  }
+  .profile-card h1 {
+    font-size: 1.25rem;
+  }
+  .profile-card p,
+  .profile-card span {
+    font-size: 0.9rem;
+  }
+}
+
+/* Medium Phones (481–640px) */
+@media (min-width: 481px) and (max-width: 640px) {
+  .profile-card {
+    max-width: 85%;
+    padding: 1.4rem;
+  }
+}
+
+/* Tablets (641–768px) */
+@media (min-width: 641px) and (max-width: 768px) {
+  .profile-card {
+    max-width: 520px;
+    padding: 1.6rem;
+  }
+}
+
+/* Small Laptops (769–1023px) */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .profile-card {
+    max-width: 580px;
+    padding: 1.8rem;
+  }
+}
+
+/* Desktops (1024–1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .profile-card {
+    max-width: 620px;
+    padding: 2rem;
+  }
+}
+
+/* Large Screens (≥1440px) */
+@media (min-width: 1440px) {
+  .profile-card {
+    max-width: 700px;
+    padding: 2.2rem;
+  }
+}
